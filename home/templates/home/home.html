@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <title>
+        {% block title %}
+            دکتر محمد واحدیان
+        {% endblock %}
+    </title>
+
+    {% block css %}
+        <link rel="shortcut icon" type="image/jpg" href="{% static 'img/aboutme.jpg' %}"/>
+        <link href="{% static 'Main.css' %}" rel="stylesheet"/>
+
+        <link href="{% static 'Menu-demo2.css' %}" rel="stylesheet"/>
+        <link href="{% static 'owl.carousel.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'owl.theme.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'hoverimg.css' %}" rel="stylesheet"/>
+        <link href="{% static 'Style.css' %}" rel="stylesheet"/>
+    {% endblock %}
+</head>
+
+
+{% block body %}
+
+    <body class="demo2">
+    <div class="main_wrap">
+        <div class="of-site-mask"></div>
+
+        <div class="off-canvas-wrap ">
+            <div class="close-off-canvas-wrap">
+                <a href="#" id="of-close-off-canvas">
+                    <i class="fal fa-times"></i>
+                </a>
+            </div>
+            <div class="off-canvas-inner">
+                <div id="of-mobile-nav" class="mobile-menu-wrap">
+                    <ul class="mobile-menu">
+
+                        <li>
+                            <a href="#">صفحه اصلی</a>
+
+                        </li>
+                        <li>
+                            <a href="#about_me">درباره من</a>
+
+                        </li>
+                        <li>
+                            <a href="#mags">آمار مقالات منتشر شده</a>
+
+                        </li>
+                        <li>
+                            <a href="#books">کتاب های منتشر شده</a>
+
+                        </li>
+                        <li>
+                            <a href="#scientific">پژوهش ها و مطالب علمی</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <header class="main_header wide_header">
+            <div class="header_container">
+
+                <div class="menu_wrapper d-flex justify-content-center">
+
+
+                    <div class="container mobnav position-fixed my_menu">
+                        <div id="navigation" class="of-drop-down of-main-menu d-flex justify-content-center"
+                             role="navigation">
+                            <ul class="menu list-group" id="list-example">
+                                <li class="has_sub ">
+                                    <a href="#" class="currentlnklight">صفحه اصلی</a>
+
+                                </li>
+                                <li><a href="#about_me">درباره من</a></li>
+                                <li><a href="#mags">آمار مقالات منتشر شده</a></li>
+                                <li><a href="#books">کتاب های منتشر شده اخیر</a></li>
+                                <li><a href="#scientific">پژوهش ها و مطالب علمی</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="is-show mobile-nav-button ">
+
+                            <a id="of-trigger" class="icon-wrap pr-3" href="#"><i
+                                    class="fal fa-bars p-1 rounded"></i></a>
+                        </div>
+
+                        {#                        <form class="search_wrap mt-lg-0" id="ajax-form-search" method="get" action="">#}
+                        {##}
+                        {#                            <input type="text" id="search-form-text" class="search-field" value="" name="s"#}
+                        {#                                   placeholder="کلید واژه مورد نظر ...">#}
+                        {#                            <button><i class="fal fa-search"></i></button>#}
+                        {##}
+                        {#                            <input type="hidden" name="post_type" value="product">#}
+                        {#                            <div id="ajax-search-result"></div>#}
+                        {#                        </form>#}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="clearfix"></div>
+
+        <div id="owl-mainslider" class="owl-carousel owl-theme text-center">
+            <div class="item">
+                <a href="https://literacy.mums.ac.ir/" target="_blank"><img src="../static/img/slide1.jpg"
+                                                                            class="img-fluid d-none d-sm-block"/></a>
+                <a href="https://literacy.mums.ac.ir/" target="_blank"><img src="../static/img/mob-slide1.jpg"
+                                                                            class="img-fluid d-block d-sm-none"/></a>
+            </div>
+
+            <div class="item">
+                <a href="#scientific">
+                    <img src="../static/img/sciencslide.jpg" class="img-fluid"/>
+                </a>
+            </div>
+        </div>
+
+        <div class="container mt-lg-4 pt-3">
+            <div class="row">
+                <div class="col-lg-4 d-lg-block d-none text-center">
+                    <img src="../static/img/461.png" class="justify-content-center"/>
+                    <img src="../static/img/aboutme.jpg" class="img-fluid radius15 servicimg"/>
+                    <img src="../static/img/464.png" class="justify-content-center"/>
+                </div>
+                <div class="col-lg-8 col-md-12 p-3 mt-5 d2-service">
+                    <div class="d-flex flex-row mb-3">
+                        <div class="Dottedstocol ml-3"></div>
+                        <div class="singletitle d-flex justify-content-between w-75">
+                            <div>
+                                <span>درباره من</span>
+                                <h1 id="about_me" class="text-right">دکتر محمد واحدیان شاهرودی
+                                </h1>
+                            </div>
+                            <div class="d-block d-sm-none">
+                                <img src="../static/img/aboutme.jpg" style="width: 60px">
+                            </div>
+
+                        </div>
+                    </div>
+                    <ul class="my-2 lists ">
+                        <li>استاد گروه آموزش بهداشت و ارتقاء سلامت دانشکده بهداشت دانشگاه علوم پزشکی مشهد</li>
+                        <li>عضو مرکز تحقیقات عوامل اجتماعی موثر بر سلامت
+                        </li>
+                        <li>مدیر مسوول مجله سواد سلامت</li>
+
+
+                    </ul>
+                    <div class="d-flex flex-row mb-3" dir="ltr">
+                        <div class="Dottedstocol"></div>
+                        <div class="singletitle_en d-flex flex-column align-items-start">
+                            <span class="text-left">about me</span>
+                            <h1 class="text-left topic">Mohammad Vahedian-Shahroodi (PhD)
+                            </h1>
+                        </div>
+
+                    </div>
+                    <ul dir="ltr" class="my-2 d-flex flex-column align-items-start text-left  lists  ">
+                        <li>Professor,
+                        </li>
+                        <li>Social Determinants of Health Research Center,
+                        </li>
+                        <li>Department of Health Education and Health Promotion,
+                        </li>
+                        <li>
+                            School of Health, Mashhad University of Medical Science, Mashhad, Iran
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+        <section class="container px-md-5 p-4 ">
+
+            <div class="team-boxed our-team bg-lighten radius20">
+                <div class="d-flex flex-row my-3">
+                    <div class="Dottedstocol ml-3"></div>
+                    <div class="singletitle">
+                        <span>آمار مقالات</span>
+                        <h1 id="mags" class="text-right">آمار مقالات منتشر شده </h1>
+                    </div>
+                </div>
+                {% for a in articles %}
+                    <div class="row team p_relative d-flex justify-content-center">
+                        <div class="Dottedsquare"></div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="https://research.mums.ac.ir/webdocument/load.action?webdocument_code=8020&masterCode=8000202"
+                                   target="_blank">
+
+                                    <img class="rounded" src="../static/img/inoutmags.jpeg">
+
+                                    <h3 class="name">مقاله چاپ شده در مجلات معتبر داخلی و خارجی</h3>
+                                    <p class="title"><span>{{ a.number_e }}</span> مقاله انگلیسی</p>
+                                    <p class="title"><span>{{ a.number_p }}</span> مقاله انگلیسی</p>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="#">
+                                    <img class="rounded" src="../static/img/TARHMAIN.jpg">
+
+                                    <h3 class="name">طرح پژوهشی مصوب دانشگاه <br>پایان یافته</h3>
+                                    <p class="title"><span>{{ a.number_mojri }}</span> به عنوان مجری</p>
+                                    <p class="title"><span>{{ a.number_hamkar }}</span> به عنوان همگار طرح</p>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="https://scholar.google.com/citations?hl=en&user=km3UL5AAAAAJ&view_op=list_works&sortby=pubdate">
+                                    <img class="rounded" src="../static/img/googlescholar.png">
+
+                                    <h3 class="name">ارجاع به مقالات در<br> گوگل اسکولار</h3>
+                                    <p class="title"><span>{{ a.number_refgs }}</span> ارجاع به مقاله</p>
+                                    <p class="title"><span>{{ a.number_gs_hindex }}</span> h-index</p>
+
+                                </a>
+
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="https://www.webofscience.com/wos/author/record/F-6775-2017" target="_blank">
+                                    <img class="rounded" src="../static/img/ISI-article.jpg">
+
+                                    <h3 class="name"> مقالات منتشر شده در<br> ISI تاکنون</h3>
+                                    <p class="title"><span>{{ a.number_ISIacc }}</span> مقاله پذیرفته شده</p>
+                                    <p class="title"><span>{{ a.number_ISIprinted }}</span>مقاله منتشر شده</p>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="https://www.scopus.com/authid/detail.uri?authorId=57211690069">
+                                    <img class="rounded" src="../static/img/scopus.png">
+
+                                    <h3 class="name"> مقالات منتشر شده در Scopus </h3>
+                                    <p class="title"><span>{{ a.number_Scopus }}</span> مقاله منتشر شده</p>
+                                    <p class="title"><span>{{ a.number_Sc_hindex }}</span> h-index</p>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
+                            <div class="box p-2">
+                                <a href="https://orcid.org/0000-0002-5402-1646">
+                                    <img class="rounded" src="../static/img/orcid.png">
+
+                                    <h3 class="name">مقالات منتشر شده در Orcid <br>تاکنون</h3>
+                                    <p class="title"><span>33</span> مقاله منتشر شده</p>
+
+
+                                </a>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="container mt-5 d-flex justify-content-center">
+                <div class="row w-100 w-sm-75 w-lg-50 bg-success  px-1 py-2 radius10">
+                    <div class="col-lg-5 text-white text-lg-right text-center">
+                        <h5 class="IRANSans_Medium">آدرس و شناسه 16 رقمی ارکید </h5>
+                    </div>
+                    <div class="col-lg-7 text-dark text-lg-left text-center mt-lg-0 mt-3">
+                        <a target="_blank" href="https://orcid.org/0000-0002-5402-1646"
+                           class="btn btn-light radius20 text-dark IRANSans_Medium">https://orcid.org/0000-0002-5402-1646</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container spicblog mt-5">
+
+            <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row mb-lg-2 mb-3">
+                    <div class="Dottedstocol ml-3"></div>
+                    <div class="singletitle">
+                        <span>کتاب ها</span>
+                        <h1 id="books" class="text-right">آخرین کتاب های منتشر شده </h1>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-3">
+                {% for b in books %}
+                    <div class="col-lg-3 col-sm-6">
+
+                        <div class="d-flex flex-lg-column flex-md-row flex-column mb-3">
+                            <a href="{% url 'home:book_detail' b.slug %}" target="_blank" class="piec4 grid mb-lg-3">
+                                <figure class="effect-sadie radius15">
+                                    <img src="{{ b.image.url }}" alt="img01" class="radius15"/>
+                                    <figcaption>
+                                        <h2 class="IRANSans_Bold">{{ b.header }}</h2>
+                                        <p>جهت مشاهده مطلب کلیک کنید ..</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </section>
+        <section class="container p-md-5 p-4 ">
+            <div class="d-flex flex-row mb-4">
+                <div class="Dottedstocol ml-3"></div>
+                <div class="singletitle">
+                    <span>مطالب علمی</span>
+                    <h1 id="scientific" class="text-right">مطالب علمی و پژوهشی </h1>
+                </div>
+            </div>
+            <div class="row">
+
+                {% for i in research %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="m-2 blog_style">
+                            <a target="_blank" href={% url 'home:article_detail' i.slug %}><img class="card-img-top"
+                                                                                src="{{ i.image.url }}"
+                                                                                alt="Card image"></a>
+                            <div class="card-body">
+                                <h3 class="mb-2"><a target="_blank" href={% url 'home:article_detail' i.slug %}>{{ i.header }}</a></h3>
+                                <p class="mb-2">
+                                    {{ i.preview }}
+                                </p>
+
+
+                                <div class="d-flex flex-row justify-content-between mt-2">
+
+                                    <a target="_blank" href={% url 'home:article_detail' i.slug %}>ادامه مطلب »</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+    <footer class="mt-5 pt-5 pb-2">
+        <div class="container py-4">
+
+
+            <div class="row pt-3">
+                <div class="container-fluid">
+                    <div class="copyright d-flex align-items-center justify-content-center"><span class="px-2">© طراحی شده توسط مهدی رفیعی</span><i class="fas fa-phone-flip">09376771709</i></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'owl.carousel.js' %}"></script>
+    <script src="{% static 'Custom.js' %}"></script>
+    <script src="{% static 'Menu.js' %}"></script>
+    </body>
+
+{% endblock %}
+

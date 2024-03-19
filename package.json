@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@ckeditor/ckeditor5-alignment": "^40.0.0"
+  },
+  "devDependencies": {
+    "stylelint-config-standard": "^36.0.0"
+  }
+}
+
