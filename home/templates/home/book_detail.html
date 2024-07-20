@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
+{% load jformat %}
 
 
 <head>
     <title>
         {% block title %}
-            کتاب ها  |  {{ detail.header }}
+            کتاب ها  |  {{ books.header }}
         {% endblock %}
     </title>
 
@@ -35,8 +36,8 @@
                 <div class="breadcrumb_content">
                     <ul>
                         <li><a href="{% url 'home:home' %}">صفحه اصلی</a></li>
-                        <li><a href="{% url 'home:home' %}">کتاب ها</a></li>
-                        <li><a href="#">{{ detail.header }}</a></li>
+                        <li><a href="{% url 'home:books' %}">کتاب ها</a></li>
+                        <li><a href="#">{{ books.header }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +53,7 @@
                             <h2 class="bg-warning text-white  py-2 px-4 my-2 bright radius10 IRANSans_Medium">آخرین کتاب
                                 ها</h2>
                             <ul class="fa12 p-3">
-                                {% for b in detail_1 %}
+                                {% for b in books_1 %}
                                     <li>
                                         <a href="{% url 'home:book_detail' b.slug %}" class="d-flex flex-row">
                                             <div><img src="{{ b.image.url }}"></div>
@@ -80,12 +81,12 @@
                                         <div class="Dottedstocol ml-3"></div>
                                         <div class="singletitle">
                                             <span>کتاب ها</span>
-                                            <h1 class="text-right">{{ detail.header }} </h1>
+                                            <h1 class="text-right">{{ books.header }} </h1>
                                         </div>
                                     </div>
-                                    <img src="{{ detail.image.url }}" class="img-fluid mb-4  radius15"/>
+                                    <img src="{{ books.image.url }}" class="img-fluid mb-4  radius15"/>
                                     <p class="text-justify">
-                                        {{ detail.body|safe }}
+                                        {{ books.body|safe }}
                                     </p>
                                 </div>
                             </div>
@@ -108,19 +109,117 @@
                     </div>
                 </div>
             </div>
+
+            <div class="main-comment-section">
+                <div class=" container-fluid mt-2">
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <h5>در این بخش دیدگاه خود را ثبت کنید :</h5>
+                            <form method="post" id="myForm">
+                                {% csrf_token %}
+                                {{ comment_form.as_p }}
+                                <button type="submit" value="submit" class="btn btn-warning text-white my-2">ارسـال<i
+                                        class="fal fa-paper-plane mr-2"></i></button>
+                            </form>
+
+                        </div>
+                    </div>
+                    <hr class="bg-dark">
+
+                </div>
+                <div class="container-fluid">
+                    <h3><span class="text-warning">{{ comments.count }}</span> دیدگاه منتشر
+                        شده {{ comments|pluralize:' ' }}</h3>
+                    {% for comment in comments %}
+                        <blockquote class="blockquote border p-3 rounded mt-1">
+
+                            <h6 class="blockquote-footer"><small> نوشته شده توسط : </small>{{ comment.name }}/
+                                <small class="text-black-50">{{ comment.timestamp|jformat:"%A %d %B %Y - %H:%M" }}
+                                    {# specific formatting #}</small>
+                            </h6>
+                            <p class="mb-0"><small>{{ comment.content }}</small></p>
+
+
+                            <button type="button" name="button" class="btn reply-btn btn-outline-dark"
+                                    onclick="myFunction()"
+                            >
+                                پاسخ
+                            </button>
+                            <div class="replied-comments container mt-2 bg-light rounded" style="display: block;">
+                                {% for reply in comment.replies.all %}
+                                    <blockquote class="blockquote mr-5">
+
+                                        <h6 class="blockquote-footer"><small> پاسخ توسط : دکتر واحدیان/</small><small
+                                                class="text-black-50"> {{ reply.timestamp|jformat:"%A %d %B %Y - %H:%M" }}</small>
+                                        </h6>
+                                        <p class="mb-0"><small>{{ reply.content }}</small></p>
+                                    </blockquote>
+                                {% endfor %}
+                                {% if request.user.is_authenticated %}
+                                    <div class="form-group row mr-3">
+                                        <form method="post" class="p-3">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                            <p>
+
+                                                <input type="text" name="name" value="مهدی" class="form-control"
+                                                       placeholder="نام" cols="50" rows="3" id="id_name"
+                                                       style="display: none">
+
+
+                                            </p>
+
+
+                                            <p>
+
+                                                <input type="tel" name="phone" value="09376771708"
+                                                       class="form-control text-right my-2" placeholder="شماره تماس"
+                                                       pattern="[09]{2}[0123456789]{9}" id="id_phone"
+                                                       style="display: none">
+
+
+                                            </p>
+
+
+                                            <p>
+
+    <textarea name="content" cols="50" rows="3" class="form-control " placeholder="دیدگاه خود را اینجا بنویسید" required
+              id="id_content">
+</textarea>
+
+
+                                            </p>
+
+                                            <button type="submit" value="submit"
+                                                    class="btn btn-warning text-white mt-3">
+                                                ارسـال<i
+                                                    class="fal fa-paper-plane mr-2"></i></button>
+                                        </form>
+
+
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </blockquote>
+
+                    {% endfor %}
+                </div>
+
+            </div>
         </section>
 
-       <footer class="mt-5 pt-5 pb-2">
-        <div class="container py-4">
+        <footer class="mt-5 pt-5 pb-2">
+            <div class="container py-4">
 
 
-            <div class="row pt-3">
-                <div class="container-fluid">
-                    <div class="copyright d-flex align-items-center justify-content-center"><span class="px-2">© طراحی شده توسط مهدی رفیعی</span><i class="fas fa-phone-flip">09376771709</i></div>
+                <div class="row pt-3">
+                    <div class="container-fluid">
+                        <div class="copyright d-flex align-items-center justify-content-center"><span class="px-2">© طراحی شده توسط مهدی رفیعی</span><i
+                                class="fas fa-phone-flip">09376771709</i></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     </div>
 
@@ -128,6 +227,27 @@
     <script src="{% static 'bootstrap.min.js' %}"></script>
     <script src="{% static 'Custom.js' %}"></script>
     <script src="{% static 'Menu.js' %}"></script>
+    <script>
+
+        function myFunction() {
+            let x = document.getElementsByClassName("replied-comments");
+            Array.from(x).forEach((x) => {
+
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            })
+
+        }
+
+
+    </script>
+    <script>
+        document.getElementById("myForm").reset();
+    </script>
+
     </body>
 
 {% endblock %}

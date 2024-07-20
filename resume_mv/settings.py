@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'ckeditor',
-    'taggit',
+    'phonenumber_field',
+    'phonenumbers',
+    'phone_field',
+    'django_jalali',
+
 
 ]
 

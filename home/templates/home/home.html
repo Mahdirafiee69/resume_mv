@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
+
 <head>
     <title>
         {% block title %}
@@ -195,24 +196,25 @@
                                 <a href="https://research.mums.ac.ir/webdocument/load.action?webdocument_code=8020&masterCode=8000202"
                                    target="_blank">
 
-                                    <img class="rounded" src="../static/img/inoutmags.jpeg">
+                                    <img class="rounded pb-5" src="../static/img/inoutmags.jpeg">
 
                                     <h3 class="name">مقاله چاپ شده در مجلات معتبر داخلی و خارجی</h3>
                                     <p class="title"><span>{{ a.number_e }}</span> مقاله انگلیسی</p>
-                                    <p class="title"><span>{{ a.number_p }}</span> مقاله انگلیسی</p>
+                                    <p class="title"><span>{{ a.number_p }}</span> مقاله فارسی</p>
 
                                 </a>
+
 
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
                             <div class="box p-2">
                                 <a href="#">
-                                    <img class="rounded" src="../static/img/TARHMAIN.jpg">
+                                    <img class="rounded pb-5" src="../static/img/TARHMAIN.jpg">
 
                                     <h3 class="name">طرح پژوهشی مصوب دانشگاه <br>پایان یافته</h3>
                                     <p class="title"><span>{{ a.number_mojri }}</span> به عنوان مجری</p>
-                                    <p class="title"><span>{{ a.number_hamkar }}</span> به عنوان همگار طرح</p>
+                                    <p class="title"><span>{{ a.number_hamkar }}</span> به عنوان همکار طرح</p>
 
                                 </a>
 
@@ -220,8 +222,9 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
                             <div class="box p-2">
-                                <a href="https://scholar.google.com/citations?hl=en&user=km3UL5AAAAAJ&view_op=list_works&sortby=pubdate">
-                                    <img class="rounded" src="../static/img/googlescholar.png">
+                                <a href="https://scholar.google.com/citations?hl=en&user=km3UL5AAAAAJ&view_op=list_works&sortby=pubdate"
+                                   target="_blank">
+                                    <img class="rounded pb-5" src="../static/img/googlescholar.png">
 
                                     <h3 class="name">ارجاع به مقالات در<br> گوگل اسکولار</h3>
                                     <p class="title"><span>{{ a.number_refgs }}</span> ارجاع به مقاله</p>
@@ -235,33 +238,40 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
                             <div class="box p-2">
                                 <a href="https://www.webofscience.com/wos/author/record/F-6775-2017" target="_blank">
-                                    <img class="rounded" src="../static/img/ISI-article.jpg">
+                                    <img class="rounded pb-2" src="../static/img/ISI-article.jpg">
 
                                     <h3 class="name"> مقالات منتشر شده در<br> ISI تاکنون</h3>
                                     <p class="title"><span>{{ a.number_ISIacc }}</span> مقاله پذیرفته شده</p>
                                     <p class="title"><span>{{ a.number_ISIprinted }}</span>مقاله منتشر شده</p>
 
                                 </a>
+                                <div class=" bg-light radius20 text-dark IRANSans_Medium text-center p-1">
+                                    ResearcherID: F-6775-2017
+                                </div>
 
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
                             <div class="box p-2">
-                                <a href="https://www.scopus.com/authid/detail.uri?authorId=57211690069">
-                                    <img class="rounded" src="../static/img/scopus.png">
+                                <a href="https://www.scopus.com/authid/detail.uri?authorId=57211690069" target="_blank">
+                                    <img class="rounded pb-1" src="../static/img/scopus.png">
 
                                     <h3 class="name"> مقالات منتشر شده در Scopus </h3>
                                     <p class="title"><span>{{ a.number_Scopus }}</span> مقاله منتشر شده</p>
                                     <p class="title"><span>{{ a.number_Sc_hindex }}</span> h-index</p>
 
+
                                 </a>
+                                <div class=" bg-light radius20 text-dark IRANSans_Medium text-center p-1">
+                                    Scopus Author ID: 55255203800
+                                </div>
 
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6 item">
                             <div class="box p-2">
-                                <a href="https://orcid.org/0000-0002-5402-1646">
-                                    <img class="rounded" src="../static/img/orcid.png">
+                                <a href="https://orcid.org/0000-0002-5402-1646" target="_blank">
+                                    <img class="rounded pb-5" src="../static/img/orcid.png">
 
                                     <h3 class="name">مقالات منتشر شده در Orcid <br>تاکنون</h3>
                                     <p class="title"><span>33</span> مقاله منتشر شده</p>
@@ -290,7 +300,7 @@
             </div>
         </section>
 
-        <section class="container spicblog mt-5">
+        <section class="container blog-grid mt-5">
 
             <div class="d-flex flex-row justify-content-between">
                 <div class="d-flex flex-row mb-lg-2 mb-3">
@@ -299,6 +309,9 @@
                         <span>کتاب ها</span>
                         <h1 id="books" class="text-right">آخرین کتاب های منتشر شده </h1>
                     </div>
+                </div>
+                <div class="pl-lg-4 pt-lg-4">
+                    <a href="{% url 'home:books' %}" class="btn btn-brow" target="_blank">کتاب های بیشتر ...</a>
                 </div>
 
             </div>
@@ -313,7 +326,7 @@
                                     <img src="{{ b.image.url }}" alt="img01" class="radius15"/>
                                     <figcaption>
                                         <h2 class="IRANSans_Bold">{{ b.header }}</h2>
-                                        <p>جهت مشاهده مطلب کلیک کنید ..</p>
+                                        <p> جهت مشاهده مطلب کلیک کنید ..</p>
                                     </figcaption>
                                 </figure>
                             </a>
@@ -325,24 +338,32 @@
 
             </div>
         </section>
-        <section class="container p-md-5 p-4 ">
-            <div class="d-flex flex-row mb-4">
-                <div class="Dottedstocol ml-3"></div>
-                <div class="singletitle">
-                    <span>مطالب علمی</span>
-                    <h1 id="scientific" class="text-right">مطالب علمی و پژوهشی </h1>
+        <section class="container blog-grid mt-5 ">
+            <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row mb-lg-2 mb-3">
+                    <div class="Dottedstocol ml-3"></div>
+                    <div class="singletitle">
+                        <span>مطالب علمی</span>
+                        <h1 id="scientific" class="text-right"> مطالب علمی و پژوهشی </h1>
+                    </div>
                 </div>
+                <div class="pl-lg-4 pt-lg-4">
+                    <a href="{% url 'home:articles' %}" class="btn btn-brow" target="_blank">مطالب بیشتر ...</a>
+                </div>
+
             </div>
+
             <div class="row">
 
                 {% for i in research %}
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="m-2 blog_style">
                             <a target="_blank" href={% url 'home:article_detail' i.slug %}><img class="card-img-top"
-                                                                                src="{{ i.image.url }}"
-                                                                                alt="Card image"></a>
+                                                                                                src="{{ i.image.url }}"
+                                                                                                alt="Card image"></a>
                             <div class="card-body">
-                                <h3 class="mb-2"><a target="_blank" href={% url 'home:article_detail' i.slug %}>{{ i.header }}</a></h3>
+                                <h3 class="mb-2"><a target="_blank"
+                                                    href={% url 'home:article_detail' i.slug %}>{{ i.header }}</a></h3>
                                 <p class="mb-2">
                                     {{ i.preview }}
                                 </p>
@@ -370,7 +391,8 @@
 
             <div class="row pt-3">
                 <div class="container-fluid">
-                    <div class="copyright d-flex align-items-center justify-content-center"><span class="px-2">© طراحی شده توسط مهدی رفیعی</span><i class="fas fa-phone-flip">09376771709</i></div>
+                    <div class="copyright d-flex align-items-center justify-content-center"><span class="px-2">© طراحی شده توسط مهدی رفیعی</span><i
+                            class="fas fa-phone-flip">09376771709</i></div>
                 </div>
             </div>
         </div>

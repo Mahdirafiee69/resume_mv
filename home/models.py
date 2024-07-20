@@ -1,9 +1,14 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from taggit.managers import TaggableManager
+from phonenumber_field.modelfields import PhoneNumberField
+from django_jalali.db import models as jmodels
+
 
 
 # Create your models here
+
+
+
 class Articles(models.Model):
     total_ep = models.PositiveIntegerField(verbose_name="آمار کل مقالات انگلیسی و فارسی")
     number_e = models.PositiveIntegerField(verbose_name="مقالات انگلیسی")
@@ -51,9 +56,47 @@ class Research(models.Model):
     preview = models.CharField(max_length=200, verbose_name="پیش نمایش")
     body = RichTextField(blank=True, null=True, verbose_name="متن اصلی")
 
+
+
     def __str__(self):
         return self.header
+
+
+
+
 
     class Meta:
         verbose_name = "مطالب منتشر شده  "
         verbose_name_plural = "مطالب"
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Books, on_delete=models.CASCADE, verbose_name="مربوط به کتاب")
+    name = models.CharField(max_length=50, verbose_name="نام")
+    phone = PhoneNumberField(region='IR', verbose_name="موبایل")
+    content = models.TextField(max_length=500, verbose_name="دیدگاه")
+    timestamp = jmodels.jDateTimeField(auto_now_add=True)
+    reply = models.ForeignKey('self', null=True, related_name='replies', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}-{}'.format(self.post.header, str(self.name))
+
+    class Meta:
+        verbose_name = "دیدگاه های منتشر شده  "
+        verbose_name_plural = "دیدگاه های کتاب ها"
+
+
+class Commenta(models.Model):
+    post = models.ForeignKey(Research, on_delete=models.CASCADE, verbose_name="مربوط به مطالب")
+    name = models.CharField(max_length=50, verbose_name="نام")
+    phone = PhoneNumberField(region='IR', verbose_name="موبایل")
+    content = models.TextField(max_length=500, verbose_name="دیدگاه")
+    timestamp = jmodels.jDateTimeField(auto_now_add=True)
+    reply = models.ForeignKey('self', null=True, related_name='replies', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}-{}'.format(self.post.header, str(self.name))
+
+    class Meta:
+        verbose_name = "دیدگاه های منتشر شده  "
+        verbose_name_plural = "دیدگاه های مطالب"

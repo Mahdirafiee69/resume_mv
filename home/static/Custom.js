@@ -1,31 +1,29 @@
-﻿
-// number count for stats, using jQuery animate
+﻿// number count for stats, using jQuery animate
 
 $('.counting').each(function () {
     let $this = $(this),
         countTo = $this.attr('data-count');
 
-    $({ countNum: $this.text() }).animate({
-        countNum: countTo
-    },
-
-    {
-
-        duration: 3000,
-        easing: 'linear',
-        step: function () {
-            $this.text(Math.floor(this.countNum));
+    $({countNum: $this.text()}).animate({
+            countNum: countTo
         },
-        complete: function () {
-            $this.text(this.countNum);
-            //alert('finished');
-        }
 
-    });
+        {
+
+            duration: 3000,
+            easing: 'linear',
+            step: function () {
+                $this.text(Math.floor(this.countNum));
+            },
+            complete: function () {
+                $this.text(this.countNum);
+                //alert('finished');
+            }
+
+        });
 
 
 });
-
 
 
 //collapsible
@@ -48,8 +46,7 @@ $(document).ready(function () {
 });
 
 
-
-//Tejarat vizhe 
+//Tejarat vizhe
 function mainslider() {
     jQuery('#owl-mainslider').owlCarousel({
         items: 1,
@@ -89,11 +86,11 @@ function owltoparticle() {
             },
 
             1200: {
-                items:4
+                items: 4
             }
-              , 1367: {
-                  items:4,
-              }
+            , 1367: {
+                items: 4,
+            }
         }
     });
 }
@@ -123,9 +120,9 @@ function owlproject() {
             1200: {
                 items: 3
             }
-              , 1367: {
-                  items:3,
-              }
+            , 1367: {
+                items: 3,
+            }
         }
     });
 }
@@ -155,13 +152,12 @@ function owlblog() {
             1200: {
                 items: 3
             }
-              , 1367: {
-                  items: 4,
-              }
+            , 1367: {
+                items: 4,
+            }
         }
     });
 }
-
 
 
 //popular doctors_index_page
@@ -179,7 +175,7 @@ function owlblogd3() {
                 items: 1,
             },
             480: {
-                items:2,
+                items: 2,
             },
             768: {
                 items: 3,
@@ -188,14 +184,12 @@ function owlblogd3() {
             1200: {
                 items: 4
             }
-              , 1367: {
-                  items: 5,
-              }
+            , 1367: {
+                items: 5,
+            }
         }
     });
 }
-
-
 
 
 //popular doctors_index_page
@@ -222,9 +216,9 @@ function owldecoproject() {
             1200: {
                 items: 4
             }
-              , 1367: {
-                  items: 5,
-              }
+            , 1367: {
+                items: 5,
+            }
         }
     });
 }
@@ -254,12 +248,13 @@ function owloutproject() {
             1200: {
                 items: 4
             }
-              , 1367: {
-                  items: 5,
-              }
+            , 1367: {
+                items: 5,
+            }
         }
     });
 }
+
 //popular doctors_index_page
 function customers() {
     jQuery('#owl-customers').owlCarousel({
@@ -275,7 +270,7 @@ function customers() {
                 items: 1,
             },
             480: {
-                items:3,
+                items: 3,
             },
             768: {
                 items: 4,
@@ -284,9 +279,9 @@ function customers() {
             1200: {
                 items: 6
             }
-              , 1367: {
-                  items:6,
-              }
+            , 1367: {
+                items: 6,
+            }
         }
     });
 }
@@ -314,9 +309,9 @@ function customershoz() {
             1200: {
                 items: 3
             }
-              , 1367: {
-                  items:3,
-              }
+            , 1367: {
+                items: 3,
+            }
         }
     });
 }
@@ -345,12 +340,13 @@ function customerscomnt() {
             1200: {
                 items: 4
             }
-              , 1367: {
-                  items: 4,
-              }
+            , 1367: {
+                items: 4,
+            }
         }
     });
 }
+
 /**** All function are called here ******/
 $(document).ready(function () {
 
@@ -361,24 +357,22 @@ $(document).ready(function () {
     //owlevent1(),
     //owlevent4(),
     //owlevent5(),
- 
+
     //owlcustomer(),
     //owldemo5(),
     //owlcourse(),
     //teletype(),
     //prcingtable(),
     customers(),
-    customershoz(),
-    customerscomnt(),
-    owlblog(),
-    owlblogd3(),
-    owldecoproject(),
-    owloutproject(),
-    owlproject(),
-    owltoparticle();
+        customershoz(),
+        customerscomnt(),
+        owlblog(),
+        owlblogd3(),
+        owldecoproject(),
+        owloutproject(),
+        owlproject(),
+        owltoparticle();
 });
-
-
 
 
 //popupgallery
@@ -400,5 +394,4 @@ $('.popup-gallery').magnificPopup({
         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
     }
 });
-
 
